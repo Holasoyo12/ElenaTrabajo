@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+<title>{%block titulo%}{%endblock%}</title>
+
+{% load static %}
+<!-- Fuente de íconos -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- Tu hoja de estilos -->
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+
+{%load static%}
+
+</head>
+
+<body>
+
+	
+
+ 	<div class="page-container">
+
+
+		<!-- Menú lateral -->
+            <div class="sidebar">
+                <div class="sidebar-header">
+                    <img src="{% block imagen %}{% endblock %}" alt="Usuario">
+                    <h3>{% block subtexto %}Usuario{% endblock %}</h3>
+                    <span>{% block span %}Bienvenido{% endblock %}</span>
+                </div>
+
+                <ul class="menu">
+                    <li><a href="{% url 'inicio' %}" title="Inicio"><i class="fa-solid fa-house"></i></a></li>
+                    <li><a href="{% url 'cursos' %}" title="Cursos"><i class="fa-solid fa-book"></i></a></li>
+                    <li><a href="{% url 'contacto' %}" title="Contacto"><i class="fa-solid fa-envelope"></i></a></li>
+                </ul>
+            </div>
+
+		<!-- /sidebar -->
+
+<!-- Contenido Principal-->
+<div class="main">
+
+    <!-- Encabezado -->
+    <div class="page-header">
+    <div class="page-title">
+        {% block encabezado %}
+        {% endblock %}
+    </div>
+</div>
+<!-- /Encabezado -->
+
+
+<!-- Barra de Navegación -->
+    <div class="breadcrumb-line">
+        <ul class="breadcrumb">
+            {% block barra_navegacion %}
+            <a href="{% url 'inicio' %}">
+                {% if request.path == '/' %}
+                    inicio
+                {% else %}
+                    inicio {{ request.path }}
+                {% endif %}
+            </a>
+            {% endblock %}
+        </ul>
+    </div>
+<!-- /Barra de Navegación -->
+
+
+        <!--CONTENIDO-->
+    {% block contenido %} <!--Template Tag-->
+        <!--block sirve para indicar que colocaremos un bloque de contenido a traves de nuestra variable content-->
+    {%endblock %}
+
+        
+
+		
+</div>
+<!-- /Contenido Principal-->
+    
+</body>
+</html>

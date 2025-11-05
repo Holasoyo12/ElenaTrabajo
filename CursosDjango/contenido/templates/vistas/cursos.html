@@ -1,0 +1,34 @@
+{% extends "vistas/encabezado.html" %}
+
+{% block titulo %}Cursos Disponibles{% endblock %}
+{%block imagen%}
+        {%load static%}
+        {%static 'imagenes/lista.webp'%}
+    {%endblock%}
+
+{% block encabezado %}
+<h3>Lista de Cursos</h3>
+{% endblock %}
+
+{% block barra_navegacion %}
+    <a href="{% url 'inicio' %}">Inicio</a> / 
+    <span>Cursos</span>
+{% endblock %}
+
+{% block contenido %}
+<h3>Lista de Cursos</h3>
+
+{% if lista_cursos %}
+<div class="cursos-container">
+    {% for curso in lista_cursos %}
+        <div class="curso-card">
+            <h4>{{ curso }}</h4>
+            <p>Curso disponible en el portal CursosDjango.</p>
+        </div>
+    {% endfor %}
+</div>
+{% else %}
+<p class="empty-message">No hay cursos disponibles por ahora.</p>
+{% endif %}
+{% endblock %}
+

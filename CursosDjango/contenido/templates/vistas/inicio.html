@@ -1,0 +1,20 @@
+{% extends "vistas/encabezado.html" %}
+
+{% block titulo %}Página Principal{% endblock %}
+{%block imagen%}
+        {%load static%}
+        {%static 'imagenes/home.webp'%}
+    {%endblock%}
+
+{% block encabezado %}
+<h3>Bienvenido a CursosDjango</h3>
+{% endblock %}
+
+{% block barra_navegacion %}
+    <a href="{% url 'inicio' %}">Inicio</a>
+{% endblock %}
+
+{% block contenido %}
+<h1>{{ mensaje }}</h1>
+<p>{{ descripcion }}</p>
+{% endblock %}

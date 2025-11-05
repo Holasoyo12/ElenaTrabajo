@@ -1,0 +1,46 @@
+{% extends "vistas/encabezado.html" %}
+
+{% block titulo %}Contacto{% endblock %}
+{%block imagen%}
+        {%load static%}
+        {%static 'imagenes/contacto.webp'%}
+    {%endblock%}
+
+{% block encabezado %}
+<h3>Formulario de Contacto</h3>
+{% endblock %}
+
+{% block barra_navegacion %}
+    <a href="{% url 'inicio' %}">Inicio</a> /
+    <a href="{% url 'cursos' %}">Cursos</a> /
+    <span>Contacto</span>
+{% endblock %}
+
+{% block contenido %}
+{% if mensaje %}
+    <p><strong>{{ mensaje }}</strong></p>
+{% endif %}
+
+<form method="POST">
+    {% csrf_token %}
+    <label>Nombre:</label>
+    <input type="text" name="nombre">
+
+    <label>Correo electrónico:</label>
+    <input type="email" name="correo">
+
+    <label>Curso:</label>
+    <select name="curso">
+        {% for clave, nombre in cursos.items %}
+            <option value="{{ nombre }}">{{ nombre }}</option>
+        {% endfor %}
+    </select>
+
+    <label>Comentarios:</label>
+    <textarea name="comentarios" rows="4"></textarea>
+
+    <button type="submit">Enviar</button>
+</form>
+{% endblock %}
+
+

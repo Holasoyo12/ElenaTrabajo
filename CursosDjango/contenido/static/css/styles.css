@@ -1,0 +1,267 @@
+/* ======= Estilo general ======= */
+/* ======= Estilo general ======= */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f6f8;
+    /* Ya no es necesario 'display: flex;' en el body ya que la sidebar es fija */
+}
+
+/* ======= Menú lateral ======= */
+.sidebar {
+    width: 80px;
+    background-color: #1e1e2f;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    transition: width 0.3s;
+}
+
+.sidebar:hover {
+    width: 200px;
+}
+
+.sidebar-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sidebar-header img {
+    width: 50px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.sidebar-header h3,
+.sidebar-header span {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.sidebar:hover .sidebar-header h3,
+.sidebar:hover .sidebar-header span {
+    opacity: 1;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.menu li {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.menu li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 15px 0;
+    transition: background-color 0.3s;
+}
+
+.menu li a:hover {
+    background-color: #343452;
+}
+
+.menu li i {
+    font-size: 22px;
+}
+
+/* ======= Contenedor principal ======= */
+.main {
+    /* El margen inicial para dejar espacio a la barra de 80px */
+    margin-left: 80px; 
+    padding: 30px;
+    width: auto; /* Permite que el contenido ocupe el espacio restante después del margin-left */
+    min-height: 100vh; /* Opcional: para que ocupe toda la altura */
+    transition: margin-left 0.3s;
+}
+
+/* Ajusta el margen-left cuando la barra lateral se expande */
+.sidebar:hover ~ .main {
+    margin-left: 200px;
+    /* No es necesario tocar el width */
+}
+
+/* ======= Barra de navegación ======= */
+.breadcrumb-line {
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+    border-left: 5px solid #007bff; /* Destacar */ 
+    padding: 12px 20px; 
+    margin-bottom: 25px; 
+    border-radius: 8px; 
+    border-bottom: none;
+}
+
+.breadcrumb a {
+    color: #555; 
+    text-decoration: none; 
+    margin-right: 15px; 
+    font-size: 0.95em;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+.breadcrumb span {
+    color: #007bff; 
+    font-weight: bold;
+}
+
+/* ======= Encabezado ======= */
+h3 {
+    color: #1e1e2f; 
+    border-bottom: 3px solid #007bff; 
+    padding-bottom: 10px; 
+    margin-bottom: 25px; 
+    font-weight: 600;
+}
+
+/* ======= Contenido ======= */
+main {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* ======= ESTILOS POR SECCIÓN ======= */
+
+/* === INICIO === */
+.main h1 {
+    font-size: 2rem;
+    color: #1e1e2f;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.main p {
+    color: #555;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #f9fafc;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* === CURSOS === */
+.cursos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.curso-card {
+    background-color: #ffffff;
+    border: 1px solid #e1e1e1;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+    width: 250px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.curso-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.curso-card h4 {
+    color: #007bff;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.curso-card p {
+    color: #555;
+    font-size: 0.95rem;
+}
+
+/* === CONTACTO === */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+form label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+form input,
+form select,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-family: inherit;
+    font-size: 15px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0,123,255,0.3);
+}
+
+form button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+form p strong {
+    display: block;
+    text-align: center;
+    background-color: #e6f4ff;
+    color: #007bff;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+/* === Mensajes vacíos o dinámicos === */
+.empty-message {
+    text-align: center;
+    color: #999;
+    font-style: italic;
+}
